@@ -3,7 +3,6 @@ import { getImage } from "../data/FetchApi";
 import NotFound from "../../public/png/NotFoundImg.png";
 import { Card } from "../types/cardShow";
 import { FaStar, FaCalendarAlt } from "react-icons/fa";
-import { useEffect } from "react";
 
 export const ShowCard = ({ card, type }: { card: Card; type: string }) => {
   const image = getImage(card.poster_path);

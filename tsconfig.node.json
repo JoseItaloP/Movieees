@@ -7,7 +7,11 @@
     "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
     "strict": true,
-    "noEmit": true
+    "noEmit": true,
+    "lib": [
+      // ... other libs
+      "ES2021.String"
+    ]
   },
   "include": ["vite.config.ts"]
 }

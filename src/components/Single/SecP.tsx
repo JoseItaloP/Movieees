@@ -18,6 +18,11 @@ export function SecP({
   SecondT,
   BR = false,
 }: SecP) {
+
+  // function verifyType(keyElement: string): keyElement is SecP{
+
+  // }
+
   switch (Type) {
     case 1:
       return (
@@ -37,7 +42,7 @@ export function SecP({
             <Icon size={18} />
             {Name}
           </span>
-          : {element1.replaceAll("-", "/")}
+          : { typeof element1 === 'string' ? element1.split("-").join("/"): ''}
         </p>
       );
       break;
@@ -48,7 +53,7 @@ export function SecP({
             <Icon size={18} />
             {Name}
           </span>
-          : $ {element1.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,")}
+          : $ { typeof element1 === 'number'? element1.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,"): ''}
         </p>
       );
       break;

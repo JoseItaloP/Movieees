@@ -1,5 +1,4 @@
-import ShowsBar from "../components/Homi/ShowsBar";
-import { Link } from "react-router-dom";
+
 import Head from "../helper/head";
 import Urls from "../components/Homi/Urls";
 import MovieTvBar from "../components/Homi/MovieTvBar";

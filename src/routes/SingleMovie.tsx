@@ -1,15 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { linksUrl } from "../types/urlFetchs";
-import NotFound from "../../public/png/NotFoundImg.png";
-import Head from "../helper/head";
 import Loading from "../components/Loading";
 import { Tmovie } from "../types/TypeMovieCard";
-
-import { FaStar, FaGlobeAmericas, FaCalendarAlt } from "react-icons/fa";
-import { IoIosPaper } from "react-icons/io";
-import { IoTimeOutline } from "react-icons/io5";
-import { GiReceiveMoney, GiPayMoney } from "react-icons/gi";
 import SingleMStructure from "../components/Single/SingleMStructure";
 
 const defaultMovie: Tmovie = {
