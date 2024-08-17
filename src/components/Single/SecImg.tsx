@@ -9,7 +9,7 @@ type TsecImg = {
 const SecImg = ({MoviePost, MovieTittle}: TsecImg) => {
   const { image } = linksUrl;
   return (
-    <section className="min-w-96 mr-5">
+    <section className="min-w-96 phone:min-w-72 mr-5">
               <img
                 src={MoviePost ?
                   image + MoviePost : NotFound}

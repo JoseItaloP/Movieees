@@ -24,10 +24,10 @@ const SingleMStructure = ({
     release_date,
 }: Tmovie) => {
   return (
-    <div className=" h-[94.6vh] phone:min-h-screen">
-      <div className="h-full phone:h-auto bg-darkPink-100  dark:bg-darkPink-950 transition-all duration-500 flex flex-col items-center ">
+    <div className=" h-[94.6vh] phone:min-h-screen ">
+      <div className="h-full phone:h-auto bg-darkPink-100  dark:bg-darkPink-950 transition-all duration-500 flex flex-col items-center">
         <Head tittle={`Page for: ${title}`} />
-        <section className="w-9/12 mt-12 ">
+        <section className="w-9/12 mt-12 midize:max-w-4xl bigSize:max-w-4xl">
           <SecH1 Tittle={title} />
           <div className="flex  phone:flex-col justify-between w-full fadeInFwd ">
             <SectImg
@@ -89,7 +89,9 @@ const SingleMStructure = ({
                 BR={true}
               />
             </section>
+            
           </div>
+          
         </section>
       </div>
     </div>

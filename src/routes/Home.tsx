@@ -4,7 +4,7 @@ import Urls from "../components/Homi/Urls";
 import MovieTvBar from "../components/Homi/MovieTvBar";
 
 type urlS = {
-  urlTopedMovies: string,
+    urlTopedMovies: string,
     urlPopularMovies: string,
     urlNowPlayingMovies: string,
     urlPopularTV: string,

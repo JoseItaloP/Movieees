@@ -922,6 +922,10 @@ video {
   line-height: 1.75rem;
 }
 
+.font-bold{
+  font-weight: 700;
+}
+
 .italic{
   font-style: italic;
 }
@@ -1206,6 +1210,10 @@ video {
   color: rgb(128 15 47 / var(--tw-text-opacity));
 }
 
+.hover\:cursor-not-allowed:hover{
+  cursor: not-allowed;
+}
+
 .hover\:bg-darkPink-600:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(255 77 109 / var(--tw-bg-opacity));
@@ -1349,6 +1357,10 @@ video {
     width: 75%;
   }
 
+  .phone\:min-w-72{
+    min-width: 18rem;
+  }
+
   .phone\:grid-cols-1{
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
@@ -1400,6 +1412,14 @@ video {
     height: 20rem;
   }
 
+  .bigSize\:max-w-3xl{
+    max-width: 48rem;
+  }
+
+  .bigSize\:max-w-4xl{
+    max-width: 56rem;
+  }
+
   .bigSize\:grid-cols-5{
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
@@ -1408,5 +1428,33 @@ video {
 @media (min-width: 1535px) and (max-width: 2169px){
   .midize\:h-80{
     height: 20rem;
+  }
+
+  .midize\:max-w-64{
+    max-width: 16rem;
+  }
+
+  .midize\:max-w-96{
+    max-width: 24rem;
+  }
+
+  .midize\:max-w-xl{
+    max-width: 36rem;
+  }
+
+  .midize\:max-w-2xl{
+    max-width: 42rem;
+  }
+
+  .midize\:max-w-3xl{
+    max-width: 48rem;
+  }
+
+  .midize\:max-w-4xl{
+    max-width: 56rem;
+  }
+
+  .midize\:justify-center{
+    justify-content: center;
   }
 }

@@ -3,7 +3,7 @@ import { getTopRatedMovies } from "../../data/FetchApi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { linksUrl } from "../../types/urlFetchs";
 import { Link } from "react-router-dom";
-import Loading from "../Loading";
+// import Loading from "../Loading";
 import NotFound from '../../../public/png/NotFoundImg.png'
 type link = {
   url: string;
@@ -19,10 +19,10 @@ type elementShow = {
 const ShowsBar = ({ url, tipo }: link) => {
   const [TenShow, setTenShow] = useState<elementShow[]>([]);
   const [slidePreview, setSlidePreview] = useState(4);
-  const [loading, setLoading] = useState(false)
+  // const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    setLoading(true)
+    // setLoading(true)
     async function getData() {
       try {
         const { results } = await getTopRatedMovies(url);
@@ -33,7 +33,7 @@ const ShowsBar = ({ url, tipo }: link) => {
       }
     }
     getData();
-    setLoading(false)
+    // setLoading(false)
   }, [url]);
 
 
@@ -60,7 +60,7 @@ const ShowsBar = ({ url, tipo }: link) => {
     };
   }, []);
 
-  if(loading) return (<Loading />)
+  // if(loading) return (<Loading />)
   return (
     <section className="fadeIn" >
       <div className="flex items-center justify-center">
