@@ -101,23 +101,25 @@ const Search = () => {
   if (loading) return <Loading />;
 
   return (
-    <div className="bg-darkPink-100  dark:bg-darkPink-950 flex flex-col items-center justify-center transition-all duration-500">
-      <Head tittle={`Search for "${query}"`} />
-      {results.length ? <TopOfSearch query={query} /> : ''}
-      {results.length ? (
-        <BodyOfSearch
-          results={results}
-          type={type}
-          previusPage={previusPage}
-          positionPage={positionPage}
-          pageNumber={pageNumber}
-          max={max}
-          nextPage={nextPage}
-          JumptoPage={JumpPage}
-        />
-      ) : (
-        <FooterOfSearch type={t} />
-      )}
+    <div className="bg-darkPink-100  dark:bg-darkPink-950  transition-all duration-500 min-h-screen">
+      <div className="flex flex-col items-center justify-center">
+        <Head tittle={`Search for "${query}"`} />
+        {results.length ? <TopOfSearch query={query} /> : ''}
+        {results.length ? (
+          <BodyOfSearch
+            results={results}
+            type={type}
+            previusPage={previusPage}
+            positionPage={positionPage}
+            pageNumber={pageNumber}
+            max={max}
+            nextPage={nextPage}
+            JumptoPage={JumpPage}
+          />
+        ) : (
+          <FooterOfSearch type={t} />
+        )}
+      </div>
     </div>
   );
 };
