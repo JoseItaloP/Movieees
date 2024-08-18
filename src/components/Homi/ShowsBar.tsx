@@ -5,6 +5,7 @@ import { linksUrl } from "../../types/urlFetchs";
 import { Link } from "react-router-dom";
 // import Loading from "../Loading";
 import NotFound from '../../../public/png/NotFoundImg.png'
+import Loading from "../Loading";
 type link = {
   url: string;
   tipo: string;
@@ -67,13 +68,13 @@ const ShowsBar = ({ url, tipo }: link) => {
   return (
     <section className="fadeIn" >
       <div className="flex items-center justify-center">
-        <Swiper
+        {TenShow && <Swiper
           slidesPerView={slidePreview}
           pagination={{ clickable: true }}
           
           navigation
         >
-          {TenShow && TenShow.map((element) => (
+          {TenShow.map((element) => (
             <SwiperSlide
               key={element.id}
               className=""
@@ -91,8 +92,8 @@ const ShowsBar = ({ url, tipo }: link) => {
                 </Link>
               </div>
             </SwiperSlide>
-          ))}
-        </Swiper>
+          )) || <Loading />}
+        </Swiper>}
       </div>
     </section>
   );
