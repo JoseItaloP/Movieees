@@ -32,7 +32,7 @@ const ShowsBar = ({ url, tipo }: link) => {
         console.error(error);
       }
     }
-    getData();
+    if ( url ) {getData();}
     // setLoading(false)
   }, [url]);
 
