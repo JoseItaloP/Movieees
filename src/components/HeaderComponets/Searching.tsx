@@ -33,7 +33,7 @@ const Searching = () => {
     return () => {
       document.removeEventListener("keydown", Enter)
     }
-  }, [])
+  })
 
 
   return (
