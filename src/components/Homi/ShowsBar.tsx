@@ -35,6 +35,9 @@ const ShowsBar = ({ url, tipo }: link) => {
     if ( url ) {getData();}
     // setLoading(false)
   }, [url]);
+  
+
+  useEffect(()=> console.log(TenShow), [TenShow])
 
 
   useEffect(() => {
@@ -70,7 +73,7 @@ const ShowsBar = ({ url, tipo }: link) => {
           
           navigation
         >
-          {TenShow.map((element) => (
+          {TenShow && TenShow.map((element) => (
             <SwiperSlide
               key={element.id}
               className=""
