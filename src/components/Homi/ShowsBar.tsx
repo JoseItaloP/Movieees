@@ -71,6 +71,7 @@ const ShowsBar = ({ url, tipo }: link) => {
         {TenShow && <Swiper
           slidesPerView={slidePreview}
           pagination={{ clickable: true }}
+          initialSlide={0}
           
           navigation
         >
@@ -87,7 +88,7 @@ const ShowsBar = ({ url, tipo }: link) => {
                   <img
                     src={element.poster_path ?  linksUrl.image + element.poster_path : NotFound}
                     alt={element.poster_path ? element.title : `Not Found Image of: ${element.title}`}
-                    className="h-full justify-self-center"
+                    className="h-full w-full justify-self-center"
                   />
                 </Link>
               </div>
