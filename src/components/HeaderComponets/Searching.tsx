@@ -23,16 +23,17 @@ const Searching = () => {
       if(event.key === 'Enter'){
         event.preventDefault()
         if(!search) return 
-        navigate(`/search?q=${search}&t=${selected}`)
+        navigate(`/search?q=${search}&t=${selected}&page=1`)
         setSearch("")
       }
     }
 
     document.addEventListener('keydown', Enter)
+
     return () => {
       document.removeEventListener("keydown", Enter)
     }
-  })
+  }, [])
 
 
   return (
