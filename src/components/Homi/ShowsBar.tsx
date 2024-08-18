@@ -68,7 +68,7 @@ const ShowsBar = ({ url, tipo }: link) => {
   return (
     <section className="fadeIn" >
       <div className="flex items-center justify-center">
-        {TenShow && <Swiper
+        {TenShow.length > 0 ? <Swiper
           slidesPerView={slidePreview}
           pagination={{ clickable: true }}
           initialSlide={0}
@@ -94,7 +94,7 @@ const ShowsBar = ({ url, tipo }: link) => {
               </div>
             </SwiperSlide>
           )) || <Loading />}
-        </Swiper>}
+        </Swiper>: ''}
       </div>
     </section>
   );
