@@ -17,8 +17,14 @@ type elementShow = {
   poster_path: string;
 };
 
+const element = {
+  id:0,
+  title:'',
+  poster_path: ''
+}
+
 const ShowsBar = ({ url, tipo }: link) => {
-  const [TenShow, setTenShow] = useState<elementShow[]>([]);
+  const [TenShow, setTenShow] = useState<elementShow[]>([element]);
   const [slidePreview, setSlidePreview] = useState(4);
   // const [loading, setLoading] = useState(false)
 
@@ -40,6 +46,7 @@ const ShowsBar = ({ url, tipo }: link) => {
 
   useEffect(()=> console.log(TenShow), [TenShow])
 
+ 
 
   useEffect(() => {
     
@@ -68,10 +75,11 @@ const ShowsBar = ({ url, tipo }: link) => {
   return (
     <section className="fadeIn" >
       <div className="flex items-center justify-center">
-        {TenShow && <Swiper
+        {TenShow[0].poster_path && <Swiper
           slidesPerView={slidePreview}
           pagination={{ clickable: true }}
           observer
+          
           navigation
         >
           {TenShow.map((element) => (
