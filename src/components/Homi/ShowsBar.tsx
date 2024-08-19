@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { linksUrl } from "../../types/urlFetchs";
 import { Link } from "react-router-dom";
 import NotFound from '../../../public/png/NotFoundImg.png'
-import Loading from "../Loading";
 
 
 type elementShow = {

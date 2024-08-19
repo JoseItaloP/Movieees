@@ -2,8 +2,6 @@
 import Head from "../helper/head";
 import Urls from "../components/Homi/Urls";
 import MovieTvBar from "../components/Homi/MovieTvBar";
-import { useState } from "react";
-import Loading from "../components/Loading";
 
 type urlS = {
     urlTopedMovies: string,
