@@ -1,15 +1,10 @@
 import { useEffect, useState } from "react";
-import { getTopRatedMovies } from "../../data/FetchApi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { linksUrl } from "../../types/urlFetchs";
 import { Link } from "react-router-dom";
-// import Loading from "../Loading";
 import NotFound from '../../../public/png/NotFoundImg.png'
 import Loading from "../Loading";
-type link = {
-  url: string;
-  tipo: string;
-};
+
 
 type elementShow = {
   id: number;
@@ -17,36 +12,15 @@ type elementShow = {
   poster_path: string;
 };
 
-const element = {
-  id:0,
-  title:'',
-  poster_path: ''
-}
+type link = {
+  Show: elementShow[];
+  tipo: string;
+};
 
-const ShowsBar = ({ url, tipo }: link) => {
-  const [TenShow, setTenShow] = useState<elementShow[]>([element]);
+
+const ShowsBar = ({ Show, tipo }: link) => {
   const [slidePreview, setSlidePreview] = useState(4);
   // const [loading, setLoading] = useState(false)
-
-  useEffect(() => {
-    // setLoading(true)
-    async function getData() {
-      try {
-        const { results } = await getTopRatedMovies(url);
-        const topTen = results.slice(0, 10);
-        setTenShow(topTen);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    if ( url ) {getData();}
-    // setLoading(false)
-  }, [url]);
-  
-
-  useEffect(()=> console.log(TenShow), [TenShow])
-
- 
 
   useEffect(() => {
     
@@ -74,23 +48,22 @@ const ShowsBar = ({ url, tipo }: link) => {
   // if(loading) return (<Loading />)
   return (
     <section className="fadeIn" >
-      <div className="flex items-center justify-center">
-        {TenShow[0].poster_path && <Swiper
+      {Show && <div className="flex items-center justify-center">
+        <Swiper
           slidesPerView={slidePreview}
           pagination={{ clickable: true }}
-          observer
           
           navigation
         >
-          {TenShow.map((element) => (
+          {Show.map((element) => (
             <SwiperSlide
               key={element.id}
               className=""
             >
-              <div className="h-72 bigSize:h-80 midize:h-80 flex items-center justify-center ">
+              <div className="h-72 bigSize:h-80 midize:h-80 flex items-center justify-center top-0 bottom-0">
                 <Link
                   to={`/${tipo}/${element.id}`}
-                  className="h-full boxShow"
+                  className="h-full boxShow top-0 bottom-0" 
                 >
                   <img
                     src={element.poster_path ?  linksUrl.image + element.poster_path : NotFound}
@@ -100,9 +73,9 @@ const ShowsBar = ({ url, tipo }: link) => {
                 </Link>
               </div>
             </SwiperSlide>
-          )) || <Loading />}
-        </Swiper>}
-      </div>
+          ))}
+        </Swiper>
+      </div>}
     </section>
   );
 };

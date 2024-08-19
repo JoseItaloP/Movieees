@@ -142,27 +142,25 @@
 
 @keyframes boxShow{
  from{
-    top:0;
     position: fixed;
     height: 100%;
  }
   to {
           height: calc(100% + 3rem);
-          position: fixed;
-          top: 0;
+          z-index: 100;
+          position: absolute;
   }
 }
 
 @keyframes boxHide{
   from{
+    position: initial;
     height: 100%;
-    position: fixed;
-    top: 0;
-     
   }
    to {
-    top: 0;
-    height:calc(100% + 3rem);
+      height:calc(100% + 3rem);
+      z-index: 100;
+      position: absolute;
    }
  }
 
