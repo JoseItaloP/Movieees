@@ -18,7 +18,6 @@ export function SecP({
   SecondT,
   BR = false,
 }: SecP) {
-
   // function verifyType(keyElement: string): keyElement is SecP{
 
   // }
@@ -42,7 +41,7 @@ export function SecP({
             <Icon size={18} />
             {Name}
           </span>
-          : { typeof element1 === 'string' ? element1.split("-").join("/"): ''}
+          : {typeof element1 === "string" ? element1.split("-").join("/") : ""}
         </p>
       );
       break;
@@ -53,7 +52,10 @@ export function SecP({
             <Icon size={18} />
             {Name}
           </span>
-          : $ { typeof element1 === 'number'? element1.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,"): ''}
+          : ${" "}
+          {typeof element1 === "number"
+            ? element1.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,")
+            : ""}
         </p>
       );
       break;
@@ -77,14 +79,14 @@ export function SecP({
         </p>
       );
       break;
-    case 4:
+    case 5:
       return (
         <>
           {element1 && (
             <p className="flex items-center ">
               <span className="text-darkPink-900 dark:text-darkPink-300 flex items-center italic">
                 <Icon size={18} />
-               {Name}
+                {Name}
               </span>
             </p>
           )}

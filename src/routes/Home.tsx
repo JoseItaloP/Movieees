@@ -4,29 +4,27 @@ import Urls from "../components/Homi/Urls";
 import MovieTvBar from "../components/Homi/MovieTvBar";
 
 type urlS = {
-    urlTopedMovies: string,
-    urlPopularMovies: string,
-    urlNowPlayingMovies: string,
-    urlPopularTV: string,
-    urlTopedTV: string,
-    urlOnAirTV: string
+  urlTopedMovies: string,
+  urlPopularMovies: string,
+  urlNowPlayingMovies: string,
+  urlPopularTV: string,
+  urlTopedTV: string,
+  urlOnAirTV: string
 }
 
 const Home = () => {
- const { 
-  urlTopedMovies,
-  urlPopularMovies,
-  urlNowPlayingMovies,
-  urlPopularTV,
-  urlTopedTV,
-  urlOnAirTV, 
-}: urlS = Urls()
-
-
+  const {
+    urlTopedMovies,
+    urlPopularMovies,
+    urlNowPlayingMovies,
+    urlPopularTV,
+    urlTopedTV,
+    urlOnAirTV,
+  }: urlS = Urls()
 
   return (
     <>
-    <Head tittle="Home"/>
+      <Head tittle="Home" />
       <main className="min-h-screen bg-darkPink-100  dark:bg-darkPink-950 transition-all duration-500 flex flex-col  items-center top-0">
         <section className="mt-5 text-center flex flex-col items-center">
           <h1 className="text-6xl phone:text-5xl text-darkPink-950 dark:text-darkPink-400">Welcome to Movieees</h1>

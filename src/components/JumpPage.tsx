@@ -32,8 +32,10 @@ const JumpPage = ({
                 key={element}
                 className="w-7 text-lg bg-darkPink-900 dark:bg-darkPink-300 hover:bg-darkPink-600 dark:hover:bg-darkPink-400 rounded-full flex flex-col items-center justify-center mx-1 text-center cursor-pointer"
                 onClick={() => JumptoPage(element)}
+                  arial-label={`Current Page ${element}`}
+                  data-testid={`Page ${element}`}
               >
-                {element}
+                  {element}
               </li>
             ))}
           </ul> }

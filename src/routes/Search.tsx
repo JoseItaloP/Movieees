@@ -31,28 +31,28 @@ const Search = () => {
   useEffect(() => {
     setLoading(true);
     window.scrollTo(0, 0)
-    
+
     if (query && page) {
       if (t === "Movie") {
         setUrl(`${searchMovie}?${key}&query=${query}&page=${page}`);
         setType(t);
-        let nowPageNumber = page !== null ? +page : pageNumber;
+        const nowPageNumber = page !== null ? +page : pageNumber;
         setPageNumber(nowPageNumber);
         console.log('query ou page alterado')
       } else if (t === "TV") {
         setUrl(`${searchTv}?${key}&query=${query}&page=${page}`);
         setType(t);
-        let nowPageNumber = page !== null ? +page : pageNumber;
+        const nowPageNumber = page !== null ? +page : pageNumber;
         setPageNumber(nowPageNumber);
       }
     }
   }, [query, page]);
 
-  useEffect(()=> console.log(query),[query])
+  useEffect(() => console.log(query), [query])
 
   useEffect(() => {
     if (max > 0) {
-      let arrayResult: number[] = [];
+      const arrayResult: number[] = [];
       for (let i = 0; i < 5; i++) {
         const currentPage = pageNumber + i;
         if (currentPage <= max) {
@@ -73,7 +73,6 @@ const Search = () => {
       const data: data = await res.json();
       const resultt = data.results;
       setResults(resultt);
-      console.log('url alterado')
       getMax({ key, query, searchMovie, searchTv, t, pageNumber });
     }
     if (url) getData();

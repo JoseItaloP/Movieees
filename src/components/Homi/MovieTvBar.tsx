@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { MovieTv } from "../../types/TypeMovieTv";
 import ShowsBar from "./ShowsBar";
 import { useEffect, useState } from "react";
-import Loading from "../Loading";
 import data from "../../types/data";
 
 type elementShow = {
@@ -12,31 +11,20 @@ type elementShow = {
 };
 
 const MovieTvBar = ({ UrlLink, toPage, Tittle, typeOf }: MovieTv) => {
+  const [TenShow, setTenShow] = useState<elementShow[]>([]);
 
-  const [TenShow, setTenShow] = useState<elementShow[]>([])
-  const [loading, setLoading] = useState(false)
-
-  
   useEffect(() => {
-     setLoading(true)
     async function getData() {
-      
-        const res = await fetch(UrlLink)
-        const data: data = await res.json()
-        const topTen = data.results.slice(0, 10);
-        setTenShow(topTen);
-     
+      const res = await fetch(UrlLink);
+      const data: data = await res.json();
+      const topTen = data.results.slice(0, 10);
+      setTenShow(topTen);
     }
-    if ( UrlLink ) {getData();}
-    // setLoading(false)
+    if (UrlLink) {
+      getData();
+    }
   }, [UrlLink]);
 
-  useEffect(()=>{
-    setLoading(false)
-    console.log(TenShow)  
-  }, [TenShow])
-
-  if(loading) return <Loading />
   return (
     <article className="max-w-full flex flex-col mb-5 appear z-0 ">
       <h3 className="ml-5 mt-5 z-0 phone:text-center ">
@@ -48,6 +36,7 @@ const MovieTvBar = ({ UrlLink, toPage, Tittle, typeOf }: MovieTv) => {
           z-0
           "
           to={`${toPage}`}
+          data-testid={`${Tittle}`}
         >
           {Tittle}
         </Link>
