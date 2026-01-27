@@ -2,10 +2,10 @@ import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import { describe, it, expect, afterEach, vi } from "vitest";
 import { userEvent } from "@testing-library/user-event"
 import { MemoryRouter } from "react-router-dom";
-import Home from "../../routes/Home";
-import HelperLocationDisplay from "./HelperLocationDisplay"
+import Home from "../../../routes/Home";
+import HelperLocationDisplay from "../helpers/HelperLocationDisplay"
 import "@testing-library/jest-dom/vitest";
-import Header from "../HeaderComponets/Header";
+import Header from "../../HeaderComponets/Header";
 
 
 
