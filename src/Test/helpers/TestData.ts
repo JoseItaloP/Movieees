@@ -1,7 +1,7 @@
 
-import { Card } from "../../../types/cardShow";
-import data from "../../../types/data";
-import Urls from "../../Homi/Urls";
+import { Card } from "../../types/cardShow";
+import data from "../../types/data";
+import Urls from "../../components/Homi/Urls";
 
 type urlS = {
     urlTopedMovies: string;

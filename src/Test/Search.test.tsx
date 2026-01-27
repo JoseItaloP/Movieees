@@ -1,14 +1,14 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import { describe, it, expect, beforeEach, vi, afterEach, } from "vitest";
 
-import Searching from "../../HeaderComponets/Searching";
+import Searching from "../components/HeaderComponets/Searching";
 import "@testing-library/jest-dom/vitest";
 import { MemoryRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
-import { mockFetchedData } from "../helpers/TestData";
-import Search from "../../../routes/Search";
-import HelperLocationDisplay from "../helpers/HelperLocationDisplay";
-import { linksUrl } from "../../../types/urlFetchs";
+import { mockFetchedData } from "./helpers/TestData";
+import Search from "../routes/Search";
+import HelperLocationDisplay from "./helpers/HelperLocationDisplay";
+import { linksUrl } from "../types/urlFetchs";
 
 
 describe("Search Test", () => {

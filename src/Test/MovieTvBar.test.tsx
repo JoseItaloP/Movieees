@@ -1,12 +1,12 @@
 import { render, screen, waitFor } from "@testing-library/react";
-import MovieTvBar from "../../Homi/MovieTvBar";
+import MovieTvBar from "../components/Homi/MovieTvBar";
 import { describe, it, expect, vi, afterEach, beforeEach } from "vitest";
 import { MemoryRouter } from "react-router-dom";
-import { mockFetchedData, urlTopedMovies, } from "../helpers/TestData";
+import { mockFetchedData, urlTopedMovies, } from "./helpers/TestData";
 import "@testing-library/jest-dom/vitest";
-import { Card } from "../../../types/cardShow";
+import { Card } from "../types/cardShow";
 import userEvent from "@testing-library/user-event";
-import HelperLocationDisplay from "../helpers/HelperLocationDisplay";
+import HelperLocationDisplay from "./helpers/HelperLocationDisplay";
 
 
 

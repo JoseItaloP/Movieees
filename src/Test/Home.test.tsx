@@ -2,10 +2,12 @@ import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import { describe, it, expect, afterEach, vi } from "vitest";
 import { userEvent } from "@testing-library/user-event"
 import { MemoryRouter } from "react-router-dom";
-import Home from "../../../routes/Home";
-import HelperLocationDisplay from "../helpers/HelperLocationDisplay"
+// import Home from "../routes/Home";
+import HelperLocationDisplay from "./helpers/HelperLocationDisplay"
 import "@testing-library/jest-dom/vitest";
-import Header from "../../HeaderComponets/Header";
+import Header from "../components/HeaderComponets/Header";
+
+import home from "./pages/home";
 
 
 
@@ -17,30 +19,15 @@ describe("Home Link Test's", () => {
   })
 
   it("should change the url in click from 'Most Popular Movies'", async () => {
+    home.renderHome()
 
-    render(
-      <MemoryRouter>
-        <Home />
-        <HelperLocationDisplay />
-      </MemoryRouter>
-    )
+    home.verifyTopMovies()
 
-    const movieTittleLink = screen.getByTestId("Top Movies of All Time")
-
-    expect(movieTittleLink).toBeInTheDocument()
-
-    expect(screen.getByTestId("location-display")).toHaveTextContent("/")
-
-    await userEvent.click(movieTittleLink)
+    await home.ventClick()
 
     await waitFor(() => {
-
-      expect(screen.getByTestId("location-display"))
-        .toHaveTextContent('/Tab/TopMoviesofAllTime?page=1');
-      expect(screen.getByText("Top Movies of All Time")).toBeInTheDocument()
+      home.expectResultUrl()
     })
-
-
   });
 
   it("should search for batman", async () => {
