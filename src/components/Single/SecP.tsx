@@ -6,7 +6,7 @@ type SecP = {
   Name: string;
   SecondT?: string;
   BR?: boolean;
-  element1: string | number | [] | boolean;
+  element1: string | number | [string] | boolean;
   element2?: string | number;
 };
 export function SecP({

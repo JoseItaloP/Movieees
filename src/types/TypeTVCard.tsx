@@ -1,5 +1,5 @@
 export type TTv = {
-    origin_country: [];
+  origin_country: [string] | [];
     original_language: string;
     original_name: string;
     name: string;

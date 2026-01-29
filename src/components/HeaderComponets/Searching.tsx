@@ -46,10 +46,8 @@ const Searching = () => {
           className="bg-darkPink-950 dark:bg-darkPink-100 dark:text-darkPink-900 text-darkPink-300 rounded-l-md "
 
         >
-          <option value="Movie" selected>
-            Movie
-          </option>
-          <option value="TV">TV</option>
+          <option value="Movie" selected> Movie </option>
+          <option value="TV"> TV </option>
         </select>
         <div className="flex">
           <input

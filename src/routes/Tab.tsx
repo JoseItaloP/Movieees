@@ -75,7 +75,7 @@ const Tab = () => {
           break;
         }
       }
-      console.log(arrayResult);
+
       setPositionPage(arrayResult);
       setLoading(false);
     }

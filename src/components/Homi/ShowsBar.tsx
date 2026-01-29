@@ -36,9 +36,9 @@ const ShowsBar = ({ Show, tipo }: link) => {
     };
   }, []);
 
-  // if(loading) return (<Loading />)
+
   return (
-    <section className="fadeIn">
+    <section className="fadeIn" >
       {Show && (
         <div className="flex items-center justify-center">
           <Swiper

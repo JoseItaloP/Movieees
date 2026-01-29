@@ -1,6 +1,3 @@
-
-import { elementShow } from './TypeMovieElements';
-
 type data = {
   page: number;
   results: [];

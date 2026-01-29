@@ -26,7 +26,7 @@ const MovieTvBar = ({ UrlLink, toPage, Tittle, typeOf }: MovieTv) => {
   }, [UrlLink]);
 
   return (
-    <article className="max-w-full flex flex-col mb-5 appear z-0 ">
+    <article className="max-w-full flex flex-col mb-5 appear z-0 " data-testid={`article_${Tittle}`}>
       <h3 className="ml-5 mt-5 z-0 phone:text-center ">
         <Link
           className="text-4xl text-darkPink-900 dark:text-darkPink-300 font-Rubik

@@ -1,5 +1,5 @@
 export type Tmovie = {
-    origin_country: [];
+  origin_country: [string] | [];
     original_language: string;
     original_title: string;
     title: string;

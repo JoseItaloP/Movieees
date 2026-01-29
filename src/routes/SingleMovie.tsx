@@ -6,7 +6,7 @@ import { Tmovie } from "../types/TypeMovieCard";
 import SingleMStructure from "../components/Single/SingleMStructure";
 
 const defaultMovie: Tmovie = {
-  origin_country: [],
+  origin_country: [''],
   original_language: "",
   original_title: "",
   title: "",
