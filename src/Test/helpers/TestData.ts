@@ -14,32 +14,89 @@ type elementData = Omit<data, 'results'> & {
 
 const { urlTopedMovies }: urlS = Urls();
 
+// Página 1: IDs 101 a 120
+const tabMockPage1: elementData = {
+    page: 1,
+    total_pages: 50,
+    total_results: 1000,
+    results: [
+        { id: 101, title: "O Senhor dos Anéis", name: "O Senhor dos Anéis", poster_path: "/img1.jpg", popularity: 95, release_date: "2001-12-19" },
+        { id: 102, title: "Breaking Bad", name: "Breaking Bad", poster_path: "/img2.jpg", popularity: 88, release_date: "2008-01-20" },
+        { id: 103, title: "Interestelar", name: "Interestelar", poster_path: "/img3.jpg", popularity: 92, release_date: "2014-11-05" },
+        { id: 104, title: "Stranger Things", name: "Stranger Things", poster_path: "/img4.jpg", popularity: 85, release_date: "2016-07-15" },
+        { id: 105, title: "Batman: O Cavaleiro das Trevas", name: "Batman: O Cavaleiro das Trevas", poster_path: "/img5.jpg", popularity: 98, release_date: "2008-07-16" },
+        { id: 106, title: "The Last of Us", name: "The Last of Us", poster_path: "/img6.jpg", popularity: 91, release_date: "2023-01-15" },
+        { id: 107, title: "A Origem", name: "A Origem", poster_path: "/img7.jpg", popularity: 89, release_date: "2010-07-16" },
+        { id: 108, title: "Succession", name: "Succession", poster_path: "/img8.jpg", popularity: 78, release_date: "2018-06-03" },
+        { id: 109, title: "Pulp Fiction", name: "Pulp Fiction", poster_path: "/img9.jpg", popularity: 87, release_date: "1994-10-14" },
+        { id: 110, title: "The Bear", name: "The Bear", poster_path: "/img10.jpg", popularity: 82, release_date: "2022-06-23" },
+        { id: 111, title: "Matrix", name: "Matrix", poster_path: "/img11.jpg", popularity: 90, release_date: "1999-03-31" },
+        { id: 112, title: "O Poderoso Chefão", name: "O Poderoso Chefão", poster_path: "/img12.jpg", popularity: 99, release_date: "1972-03-14" },
+        { id: 113, title: "Forrest Gump", name: "Forrest Gump", poster_path: "/img13.jpg", popularity: 88, release_date: "1994-07-06" },
+        { id: 114, title: "The Crown", name: "The Crown", poster_path: "/img14.jpg", popularity: 84, release_date: "2016-11-04" },
+        { id: 115, title: "The Office", name: "The Office", poster_path: "/img15.jpg", popularity: 95, release_date: "2005-03-24" },
+        { id: 116, title: "Gladiador", name: "Gladiador", poster_path: "/img16.jpg", popularity: 89, release_date: "2000-05-01" },
+        { id: 117, title: "Avatar", name: "Avatar", poster_path: "/img17.jpg", popularity: 86, release_date: "2009-12-18" },
+        { id: 118, title: "The Mandalorian", name: "The Mandalorian", poster_path: "/img18.jpg", popularity: 91, release_date: "2019-11-12" },
+        { id: 119, title: "Severance", name: "Severance", poster_path: "/img19.jpg", popularity: 83, release_date: "2022-02-18" },
+        { id: 120, title: "Chernobyl", name: "Chernobyl", poster_path: "/img20.jpg", popularity: 96, release_date: "2019-05-06" }
+    ]
+};
+
+// Página 2: IDs 201 a 220
+const tabMockPage2: elementData = {
+    page: 2,
+    total_pages: 50,
+    total_results: 1000,
+    results: [
+        { id: 201, title: "Clube da Luta", name: "Clube da Luta", poster_path: "/img21.jpg", popularity: 94, release_date: "1999-10-15" },
+        { id: 202, title: "Better Call Saul", name: "Better Call Saul", poster_path: "/img22.jpg", popularity: 84, release_date: "2015-02-08" },
+        { id: 203, title: "Parasita", name: "Parasita", poster_path: "/img23.jpg", popularity: 90, release_date: "2019-05-30" },
+        { id: 204, title: "The Boys", name: "The Boys", poster_path: "/img24.jpg", popularity: 88, release_date: "2019-07-26" },
+        { id: 205, title: "Duna: Parte Dois", name: "Duna: Parte Dois", poster_path: "/img25.jpg", popularity: 97, release_date: "2024-02-27" },
+        { id: 206, title: "Round 6", name: "Round 6", poster_path: "/img26.jpg", popularity: 81, release_date: "2021-09-17" },
+        { id: 207, title: "Oppenheimer", name: "Oppenheimer", poster_path: "/img27.jpg", popularity: 96, release_date: "2023-07-19" },
+        { id: 208, title: "Dark", name: "Dark", poster_path: "/img28.jpg", popularity: 79, release_date: "2017-12-01" },
+        { id: 209, title: "Spider-Man: Across the Spider-Verse", name: "Spider-Man: Across the Spider-Verse", poster_path: "/img29.jpg", popularity: 93, release_date: "2023-05-31" },
+        { id: 210, title: "O Show de Truman", name: "O Show de Truman", poster_path: "/img30.jpg", popularity: 87, release_date: "1998-06-05" },
+        { id: 211, title: "Coringa", name: "Coringa", poster_path: "/img31.jpg", popularity: 91, release_date: "2019-10-02" },
+        { id: 212, title: "A Lista de Schindler", name: "A Lista de Schindler", poster_path: "/img32.jpg", popularity: 95, release_date: "1993-11-30" },
+        { id: 213, title: "Shrek", name: "Shrek", poster_path: "/img33.jpg", popularity: 85, release_date: "2001-05-18" },
+        { id: 214, title: "The Witcher", name: "The Witcher", poster_path: "/img34.jpg", popularity: 82, release_date: "2019-12-20" },
+        { id: 215, title: "Ted Lasso", name: "Ted Lasso", poster_path: "/img35.jpg", popularity: 88, release_date: "2020-08-14" },
+        { id: 216, title: "Whiplash", name: "Whiplash", poster_path: "/img36.jpg", popularity: 92, release_date: "2014-10-10" },
+        { id: 217, title: "Toy Story", name: "Toy Story", poster_path: "/img37.jpg", popularity: 89, release_date: "1995-11-22" },
+        { id: 218, title: "Black Mirror", name: "Black Mirror", poster_path: "/img38.jpg", popularity: 86, release_date: "2011-12-04" },
+        { id: 219, title: "Bacurau", name: "Bacurau", poster_path: "/img39.jpg", popularity: 77, release_date: "2019-08-29" },
+        { id: 220, title: "The White Lotus", name: "The White Lotus", poster_path: "/img40.jpg", popularity: 80, release_date: "2021-07-11" }
+    ]
+};
+
+// Página 3: IDs 301 a 320 (gerados dinamicamente para brevidade)
+const tabMockPage3: elementData = {
+    page: 3,
+    total_pages: 50,
+    total_results: 1000,
+    results: Array.from({ length: 20 }, (_, i) => ({
+        id: 301 + i,
+        title: `Filme Página 3 - Item ${i + 1}`,
+        name: `Filme Página 3 - Item ${i + 1}`,
+        poster_path: `/img3-${i}.jpg`,
+        popularity: 70 + i,
+        release_date: "2022-01-01"
+    }))
+};
+
+// --- MOCK MESTRE: Contém tudo ---
 const mockFetchedData: elementData = {
     page: 1,
-    results: [
-        { id: 4829, title: "O Senhor dos Anéis", name: "O Senhor dos Anéis", poster_path: "/6oom5QYv7nyJ6pBN0m6vCcTe6Ga.jpg", popularity: 95.8, release_date: "2001-12-19" },
-        { id: 1052, title: "Breaking Bad", name: "Breaking Bad", poster_path: "/ggm8JNNoFEpW37v8AnYfX89O96O.jpg", popularity: 88.5, release_date: "2008-01-20" },
-        { id: 9371, title: "Interestelar", name: "Interestelar", poster_path: "/gEU2QniE6E77NI6vCU6m9iBPfDc.jpg", popularity: 92.1, release_date: "2014-11-05" },
-        { id: 2204, title: "Stranger Things", name: "Stranger Things", poster_path: "/x2LSRm21uTEx2Pq2S5uR7iG7XSB.jpg", popularity: 85.4, release_date: "2016-07-15" },
-        { id: 7731, title: "Batman: O Cavaleiro das Trevas", name: "Batman: O Cavaleiro das Trevas", poster_path: "/qJ2tW6WMUDp9QjVvMv2aXGYSfS6.jpg", popularity: 98.2, release_date: "2008-07-16" },
-        { id: 5510, title: "The Last of Us", name: "The Last of Us", poster_path: "/uKvH561NEwhu39R2Br6pZ6uC19u.jpg", popularity: 91.0, release_date: "2023-01-15" },
-        { id: 1289, title: "A Origem", name: "A Origem", poster_path: "/9e3tm61Ho7r9pS69iMbiO9384pE.jpg", popularity: 89.7, release_date: "2010-07-16" },
-        { id: 8842, title: "Succession", name: "Succession", poster_path: "/7Y96m99YpS69iMbiO9384pE9e3t.jpg", popularity: 78.3, release_date: "2018-06-03" },
-        { id: 3367, title: "Pulp Fiction", name: "Pulp Fiction", poster_path: "/f6874N4S69iMbiO9384pE9e3tY9.jpg", popularity: 87.9, release_date: "1994-10-14" },
-        { id: 6621, title: "The Bear", name: "The Bear", poster_path: "/uS8239YpS69iMbiO9384pE9e3tY9.jpg", popularity: 82.5, release_date: "2022-06-23" },
-        { id: 4098, title: "Clube da Luta", name: "Clube da Luta", poster_path: "/b9639YpS69iMbiO9384pE9e3tY9.jpg", popularity: 94.2, release_date: "1999-10-15" },
-        { id: 1543, title: "Better Call Saul", name: "Better Call Saul", poster_path: "/v5439YpS69iMbiO9384pE9e3tY9.jpg", popularity: 84.6, release_date: "2015-02-08" },
-        { id: 2901, title: "Parasita", name: "Parasita", poster_path: "/77139YpS69iMbiO9384pE9e3tY9.jpg", popularity: 90.5, release_date: "2019-05-30" },
-        { id: 5582, title: "The Boys", name: "The Boys", poster_path: "/m9239YpS69iMbiO9384pE9e3tY9.jpg", popularity: 88.9, release_date: "2019-07-26" },
-        { id: 9912, title: "Duna: Parte Dois", name: "Duna: Parte Dois", poster_path: "/cz139YpS69iMbiO9384pE9e3tY9.jpg", popularity: 97.4, release_date: "2024-02-27" },
-        { id: 3410, title: "Round 6", name: "Round 6", poster_path: "/s8839YpS69iMbiO9384pE9e3tY9.jpg", popularity: 81.2, release_date: "2021-09-17" },
-        { id: 7234, title: "Oppenheimer", name: "Oppenheimer", poster_path: "/80239YpS69iMbiO9384pE9e3tY9.jpg", popularity: 96.1, release_date: "2023-07-19" },
-        { id: 1105, title: "Dark", name: "Dark", poster_path: "/w4439YpS69iMbiO9384pE9e3tY9.jpg", popularity: 79.8, release_date: "2017-12-01" },
-        { id: 8472, title: "Spider-Man: Across the Spider-Verse", name: "Spider-Man: Across the Spider-Verse", poster_path: "/x0039YpS69iMbiO9384pE9e3tY9.jpg", popularity: 93.3, release_date: "2023-05-31" },
-        { id: 6019, title: "Severance", name: "Severance", poster_path: "/k1139YpS69iMbiO9384pE9e3tY9.jpg", popularity: 76.5, release_date: "2022-02-18" }
-    ],
     total_pages: 50,
-    total_results: 500,
+    total_results: 1000,
+    results: [
+        ...tabMockPage1.results,
+        ...tabMockPage2.results,
+        ...tabMockPage3.results
+    ]
 };
 
 const MovieMockData: Tmovie[] = [
@@ -666,5 +723,5 @@ const TvMockData: TTv[] = [
     }
 ]
 
-export { urlTopedMovies, mockFetchedData, MovieMockData, TvMockData }
+export { urlTopedMovies, mockFetchedData, MovieMockData, TvMockData, tabMockPage1, tabMockPage2, tabMockPage3 }
 

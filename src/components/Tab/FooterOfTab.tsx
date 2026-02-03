@@ -13,9 +13,9 @@ const FooterOfTab = ({
     <>
     {max > 1 && (
         <section className="flex items-center justify-center w-20 mb-4">
-        <button onClick={previusPage} className="mr-1">
-          <IoIosArrowBack />
-        </button>
+          <button onClick={previusPage} className="mr-1" data-testid="nextPage">
+            <IoIosArrowBack />
+          </button>
         {max === pageNumber ? '' : 
         <ul className="flex items-center">
           {positionPage.map((element) => (
@@ -32,6 +32,7 @@ const FooterOfTab = ({
               onClick={() => {
                 JumpPage(element);
               }}
+                data-testid={`${element}Jump`}
             >
               {element}
             </li>
@@ -40,7 +41,7 @@ const FooterOfTab = ({
         {pageNumber === max ? (
           ""
         ) : (
-          <button onClick={nextPage} className="ml-1">
+              <button onClick={nextPage} className="ml-1" data-testid="prevPage">
             <IoIosArrowForward />
           </button>
         )}

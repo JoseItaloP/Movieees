@@ -48,7 +48,7 @@ const useSetMax = () => {
 
       let maxPage = pageNumber;
       for(let i = 0; i <= 4; i++) {
-        let nextUrl = `${LinkMovieTv}top_rated?${LinkKey}&page=${maxPage}`;
+        const nextUrl = `${LinkMovieTv}top_rated?${LinkKey}&page=${maxPage}`;
 
         const nextRes = await fetch(nextUrl);
         const nextData: data = await nextRes.json();

@@ -17,7 +17,7 @@ export const ShowCard = ({ card, type }: { card: Card; type: string }) => {
       appear
       "
       >
-        <Link to={`/${type}/${card.id}`}>
+        <Link data-testid={`${card.id}`} to={`/${type}/${card.id}`}>
           <img
             src={verify ? image : NotFound}
             alt={verify ? card.title : `Not Found Image of: ${card.title}`}

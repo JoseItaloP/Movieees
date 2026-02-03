@@ -1,6 +1,6 @@
 import { linksUrl } from '../../types/urlFetchs';
 const Urls = () => {
-    const urlTopedMovies = `${linksUrl.movie}top_rated?${linksUrl.key}`;
+  const urlTopedMovies = `${linksUrl.movie}top_rated?${linksUrl.key}`;
   const urlPopularMovies = `${linksUrl.movie}popular?${linksUrl.key}`;
   const urlNowPlayingMovies = `${linksUrl.movie}now_playing?${linksUrl.key}`;
   const urlPopularTV = `${linksUrl.tv}popular?${linksUrl.key}`;

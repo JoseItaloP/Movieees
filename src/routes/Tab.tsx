@@ -8,6 +8,7 @@ import Head from "../helper/head";
 import TopOfTab from "../components/Tab/TopOfTab";
 import BodyOfTab from "../components/Tab/BodyOfTab";
 import FooterOfTab from "../components/Tab/FooterOfTab";
+import data from "../types/data";
 
 const Tab = () => {
   const { id } = useParams();
@@ -66,7 +67,7 @@ const Tab = () => {
 
   useEffect(() => {
     if (max > 0) {
-      let arrayResult: number[] = [];
+      const arrayResult: number[] = [];
       for (let i = 0; i < 5; i++) {
         const currentPage = pageNumber + i;
         if (currentPage <= max) {
@@ -85,14 +86,14 @@ const Tab = () => {
     async function getData() {
       try {
         const res = await fetch(url);
-        const data = await res.json();
+        const data: data = await res.json();
         const resultts = data.results;
         setTab(resultts);
       } catch (err) {
         console.error(err);
       }
-      let LinkMovieTv = type === "Movie" ? linksUrl.movie : linksUrl.tv;
-      let LinkKey = linksUrl.key;
+      const LinkMovieTv = type === "Movie" ? linksUrl.movie : linksUrl.tv;
+      const LinkKey = linksUrl.key;
       getMaxTab({ LinkMovieTv, LinkKey, pageNumber });
     }
     if (url) {

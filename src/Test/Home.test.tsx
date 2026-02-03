@@ -1,12 +1,6 @@
 import { waitFor } from "@testing-library/react";
 import { describe, it, afterEach, beforeEach } from "vitest";
-// import { userEvent } from "@testing-library/user-event"
-// import { MemoryRouter } from "react-router-dom";
-// import Home from "../routes/Home";
-// import HelperLocationDisplay from "./helpers/HelperLocationDisplay"
 import "@testing-library/jest-dom/vitest";
-// import Header from "../components/HeaderComponets/Header";
-
 import home from "./pages/home";
 import { mockFetchedData } from "./helpers/TestData";
 
@@ -18,21 +12,15 @@ describe("Teting Home page", () => {
 
   const { onSlicenext, onSlicePrev } = home.sliceBtt()
 
-  //mock data fetched
-  //mock url links
-
   home.swiperMock()
 
   beforeEach(() => {
     home.beforeach()
   });
 
-
   afterEach(() => {
     home.aftereach()
   });
-
-
 
   it("should change the url in click from 'Most Popular Movies'", async () => {
 
