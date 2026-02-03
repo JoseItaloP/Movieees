@@ -1,5 +1,5 @@
-import { cleanup, waitFor } from "@testing-library/react";
-import { describe, it, afterEach, vi, beforeEach, vitest } from "vitest";
+import { waitFor } from "@testing-library/react";
+import { describe, it, afterEach, beforeEach } from "vitest";
 // import { userEvent } from "@testing-library/user-event"
 // import { MemoryRouter } from "react-router-dom";
 // import Home from "../routes/Home";
@@ -9,8 +9,6 @@ import "@testing-library/jest-dom/vitest";
 
 import home from "./pages/home";
 import { mockFetchedData } from "./helpers/TestData";
-import { Swiper as SwiperType } from "swiper/types";
-import { ReactNode } from "react";
 
 
 
@@ -18,55 +16,20 @@ import { ReactNode } from "react";
 
 describe("Teting Home page", () => {
 
-  const { onSlicenext, onSlicePrev } = vi.hoisted(() => ({
-    onSlicenext: vi.fn(),
-    onSlicePrev: vi.fn()
-  }))
-  type swiperMockType = {
-    children: ReactNode | ReactNode[],
-    props: SwiperType
-  }
+  const { onSlicenext, onSlicePrev } = home.sliceBtt()
 
   //mock data fetched
   //mock url links
 
-  vitest.mock("swiper/react", () => ({
-    Swiper: ({ children, ...props }: swiperMockType) => (
-
-      <div data-testid='swiper-container'  {...props}>
-        <button className="swiper-button-prev" onClick={() => onSlicePrev()}>
-          preview
-        </button>
-        <button className="swiper-button-next" onClick={() => onSlicenext()}>
-          next
-        </button>
-        {children}
-      </div>
-
-    ),
-    SwiperSlide: ({ children, ...props }: swiperMockType) => (
-      <div data-testid='swiper-slide' {...props}>
-        {children}
-      </div>
-    )
-
-  }))
-
+  home.swiperMock()
 
   beforeEach(() => {
-    global.fetch = vi.fn(() =>
-      Promise.resolve({
-        json: () => Promise.resolve(mockFetchedData),
-        ok: true,
-        status: 200,
-      } as Response)
-    );
+    home.beforeach()
   });
 
 
   afterEach(() => {
-    cleanup()
-    vi.resetAllMocks();
+    home.aftereach()
   });
 
 
@@ -96,8 +59,6 @@ describe("Teting Home page", () => {
     home.verifyElement("Top Now Playing TV Series")
 
   })
-
-
 
   it("should load all the slide on home page", async () => {
     home.renderHome()

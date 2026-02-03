@@ -1,11 +1,20 @@
-import { render, RenderResult, screen, waitFor } from "@testing-library/react";
+import { cleanup, render, RenderResult, screen, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import Home from "../../../routes/Home";
 import HelperLocationDisplay from "../../helpers/HelperLocationDisplay";
 import elements from "./elements";
-import { expect, Mock } from "vitest";
+import { expect, Mock, vi, vitest } from "vitest";
 import userEvent from "@testing-library/user-event";
 import { Card } from "../../../types/cardShow";
+import { mockFetchedData } from "../../helpers/TestData";
+import { ReactNode } from "react";
+import { Swiper as SwiperType } from "swiper/types";
+
+
+type swiperMockType = {
+  children: ReactNode | ReactNode[],
+  props: SwiperType
+}
 
 export default new class HomePage {
 
@@ -16,6 +25,59 @@ export default new class HomePage {
         <HelperLocationDisplay />
       </MemoryRouter>
     );
+  }
+
+  beforeach() {
+    global.fetch = vi.fn(() =>
+      Promise.resolve({
+        json: () => Promise.resolve(mockFetchedData),
+        ok: true,
+        status: 200,
+      } as Response)
+    );
+  }
+
+  aftereach() {
+    cleanup()
+    vi.resetAllMocks();
+  }
+
+  sliceBtt() {
+    const { onSlicenext, onSlicePrev } = vi.hoisted(() => ({
+      onSlicenext: vi.fn(),
+      onSlicePrev: vi.fn()
+    }))
+
+    return {
+      onSlicenext,
+      onSlicePrev
+    }
+  }
+
+  swiperMock() {
+    const {
+      onSlicenext,
+      onSlicePrev } = this.sliceBtt()
+    vitest.mock("swiper/react", () => ({
+      Swiper: ({ children, ...props }: swiperMockType) => (
+        <div data-testid='swiper-container'  {...props}>
+          <button className="swiper-button-prev" onClick={() => onSlicePrev()}>
+            preview
+          </button>
+          <button className="swiper-button-next" onClick={() => onSlicenext()}>
+            next
+          </button>
+          {children}
+        </div>
+
+      ),
+      SwiperSlide: ({ children, ...props }: swiperMockType) => (
+        <div data-testid='swiper-slide' {...props}>
+          {children}
+        </div>
+      )
+    }))
+
   }
 
   verifyElement(elementPass: string) {
@@ -87,7 +149,6 @@ export default new class HomePage {
         if (elementFind) {
           arrayElements.push(elementFind)
         }
-
       })
 
     }, { timeout: 3000 })
