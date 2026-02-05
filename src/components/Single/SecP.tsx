@@ -18,15 +18,16 @@ export function SecP({
   SecondT,
   BR = false,
 }: SecP) {
-  // function verifyType(keyElement: string): keyElement is SecP{
-
-  // }
 
   switch (Type) {
     case 1:
       return (
-        <p className="mb-1 flex items-center">
-          <span className="text-darkPink-900 dark:text-darkPink-200 flex items-center">
+        <p data-testid={`type1_${Name}`}
+          className="mb-1 flex items-center">
+          <span
+            className="text-darkPink-900 dark:text-darkPink-200 flex items-center"
+            data-testid={`type1_${Name}_span`}
+          >
             <Icon size={18} />
             {Name}
           </span>
@@ -36,8 +37,12 @@ export function SecP({
       break;
     case 2:
       return (
-        <p className="mb-1 flex items-center">
-          <span className="text-darkPink-900 dark:text-darkPink-200 flex items-center">
+        <p data-testid={`type2_${Name}`}
+          className="mb-1 flex items-center">
+          <span
+            className="text-darkPink-900 dark:text-darkPink-200 flex items-center"
+            data-testid={`type2_${Name}_span`}
+          >
             <Icon size={18} />
             {Name}
           </span>
@@ -47,8 +52,11 @@ export function SecP({
       break;
     case 3:
       return (
-        <p className="flex items-center">
-          <span className="text-darkPink-900 dark:text-darkPink-200 flex items-center">
+        <p data-testid={`type3_${Name}`}
+          className="flex items-center">
+          <span
+            data-testid={`type3_${Name}_span`}
+            className="text-darkPink-900 dark:text-darkPink-200 flex items-center">
             <Icon size={18} />
             {Name}
           </span>
@@ -61,17 +69,23 @@ export function SecP({
       break;
     case 4:
       return BR ? (
-        <p>
-          <span className="text-darkPink-900 dark:text-darkPink-200 flex items-center">
+        <p data-testid={`type4_${Name}_${BR}`}>
+          <span
+            className="text-darkPink-900 dark:text-darkPink-200 flex items-center">
             <Icon size={18} />
-            <h3 className="text-1xl">{Name}</h3>-
+            <h3
+              data-testid={`type4_${Name}_${BR}_span`}
+              className="text-1xl">{Name}</h3>-
           </span>
           <br />
           {element1} {SecondT}
         </p>
       ) : (
-        <p className="flex items-center">
-          <span className="text-darkPink-900 dark:text-darkPink-200 flex items-center">
+          <p data-testid={`type4_${Name}`}
+            className="flex items-center">
+            <span
+              data-testid={`type4_${Name}_span`}
+              className="text-darkPink-900 dark:text-darkPink-200 flex items-center">
             <Icon size={18} />
             {Name}
           </span>
@@ -83,8 +97,11 @@ export function SecP({
       return (
         <>
           {element1 && (
-            <p className="flex items-center ">
-              <span className="text-darkPink-900 dark:text-darkPink-300 flex items-center italic">
+            <p data-testid={`type5_${Name}`}
+              className="flex items-center">
+              <span
+                data-testid={`type5_${Name}_span`}
+                className="text-darkPink-900 dark:text-darkPink-300 flex items-center italic">
                 <Icon size={18} />
                 {Name}
               </span>

@@ -26,7 +26,7 @@ export default new class TabPage {
     }
 
     beforeach(){
-        global.fetch = vi.fn().mockImplementation((url: string) =>{
+      global.fetch = vi.fn().mockImplementation((url: string) => {
       if(url.includes('&page=1')){
         return Promise.resolve({
           json: () => Promise.resolve(tabMockPage1),
